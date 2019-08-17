@@ -18,7 +18,7 @@ deployments:
       - kiwigrid https://kiwigrid.github.io
     kubernetes_port_mapping:
       - svc/apache:3000:80
-      - svc/graphite:8080:80
+      - svc/graphite:8080
     subdomain_port_mapping: 
       - apache:3000
       - graphite:8080
