@@ -1,0 +1,20 @@
+deployments:
+  odoo:
+    kubernetes_helm_chart: stable/odoo, bitnami/apache
+    kubernetes_helm_parameters: 
+      stable/odoo: odooPassword=password,postgresql.postgresPassword=secretpassword
+    deployment_type: kubernetes
+    kubernetes_service: odoo
+    kubernetes_helm_repository: bitnami https://charts.bitnami.com/bitnami
+  drupal:
+    kubernetes_helm_chart: 
+      - stable/drupal
+      - bitnami/apache
+      - kiwigrid/graphite
+    deployment_type: kubernetes
+    kubernetes_service: drupal
+    kubernetes_helm_repository: 
+      - bitnami https://charts.bitnami.com/bitnami
+      - kiwigrid https://kiwigrid.github.io
+#     kubernetes_port_mapping: redmine:3000
+#     subdomain_port_mapping: redmine:3000
