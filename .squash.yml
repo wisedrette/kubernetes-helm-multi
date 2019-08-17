@@ -16,5 +16,9 @@ deployments:
     kubernetes_helm_repository: 
       - bitnami https://charts.bitnami.com/bitnami
       - kiwigrid https://kiwigrid.github.io
-#     kubernetes_port_mapping: redmine:3000
-#     subdomain_port_mapping: redmine:3000
+    kubernetes_port_mapping:
+      - svc/apache:3000:80
+      - svc/graphite:8080:80
+    subdomain_port_mapping: 
+      - apache:3000
+      - graphite:8080
