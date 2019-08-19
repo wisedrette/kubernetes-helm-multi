@@ -5,6 +5,7 @@ deployments:
       stable/odoo: odooPassword=password,postgresql.postgresPassword=secretpassword
     deployment_type: kubernetes
     kubernetes_service: odoo
+    kubernetes_default_pod: odoo
     kubernetes_helm_repository: bitnami https://charts.bitnami.com/bitnami
   drupal:
     kubernetes_helm_chart: 
@@ -13,6 +14,7 @@ deployments:
       - kiwigrid/graphite
     deployment_type: kubernetes
     kubernetes_service: drupal
+    kubernetes_default_pod: drupal
     kubernetes_helm_repository: 
       - bitnami https://charts.bitnami.com/bitnami
       - kiwigrid https://kiwigrid.github.io
