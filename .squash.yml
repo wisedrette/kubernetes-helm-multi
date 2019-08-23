@@ -12,6 +12,12 @@ deployments:
       - svc/apache:8888
     subdomain_port_mapping: 
       - apache:8888
+    depends_on:
+      - APP:
+          app: kubernetes-helm-multi/master:drupal
+          subdomain: apache
+      - K8S:
+          app: k8s-wordsmith-demo/squash-test
   drupal:
     kubernetes_helm_chart: 
       - stable/drupal
