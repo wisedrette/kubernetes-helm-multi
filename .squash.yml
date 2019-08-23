@@ -35,3 +35,6 @@ deployments:
     subdomain_port_mapping: 
       - apache:3000
       - graphite:8080
+    depends_on:
+      - K8S:
+          app: k8s-wordsmith-demo/squash-test
