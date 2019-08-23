@@ -14,7 +14,7 @@ deployments:
       - apache:8888
     depends_on:
       - APP:
-          app: kubernetes-helm-multi/master:drupal
+          app: kubernetes-helm-multi/dep:drupal
           subdomain: apache
       - K8S:
           app: k8s-wordsmith-demo/squash-test
