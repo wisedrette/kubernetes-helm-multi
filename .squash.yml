@@ -1,40 +1,4 @@
 deployments:
-  odoo:
-    kubernetes_helm_chart: stable/odoo, bitnami/apache
-    kubernetes_helm_parameters: 
-      stable/odoo: odooUsername=username,odooPassword=password,postgresql.postgresPassword=secretpassword
-      bitnami/apache: service.port=8888
-    deployment_type: kubernetes
-    kubernetes_service: odoo
-    kubernetes_default_pod: odoo
-    kubernetes_helm_repository: bitnami https://charts.bitnami.com/bitnami
-    kubernetes_port_mapping:
-      - svc/apache:8888
-    subdomain_port_mapping: 
-      - apache:8888
-    depends_on:
-      - APP:
-          app: kubernetes-helm-multi/dep:drupal
-          subdomain: apache
-      - K8S:
-          app: k8s-wordsmith-demo/squash-test
-  drupal:
-    kubernetes_helm_chart: 
-      - stable/drupal
-      - bitnami/apache
-      - kiwigrid/graphite
-    deployment_type: kubernetes
-    kubernetes_service: drupal
-    kubernetes_default_pod: drupal
-    kubernetes_helm_repository: 
-      - bitnami https://charts.bitnami.com/bitnami
-      - kiwigrid https://kiwigrid.github.io
-    kubernetes_port_mapping:
-      - svc/apache:3000:80
-      - svc/graphite:8080
-    subdomain_port_mapping: 
-      - apache:3000
-      - graphite:8080
-    depends_on:
-      - K8S:
-          app: k8s-wordsmith-demo/squash-test
+  redis:
+    kubernetes_helm_chart: stable/redis
+    check_service_ports: 6379
