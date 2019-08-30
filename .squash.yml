@@ -1,4 +1,5 @@
 deployments:
   redis:
     kubernetes_helm_chart: stable/redis
+    deployment_type: kubernetes
     check_service_ports: 6379
